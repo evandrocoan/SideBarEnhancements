@@ -739,17 +739,6 @@
 	},
 	{
 		"caption": "-",
-		"id": "side-bar-donate-separator"
-	},
-	{
-		"caption": "Give 20$",
-		"command": "side_bar_donate",
-		"args": {
-			"paths": []
-		}
-	},
-	{
-		"caption": "-",
 		"id": "side-bar-end-separator"
 	},
 	{

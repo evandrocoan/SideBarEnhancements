@@ -202,7 +202,7 @@
 		]
 	},
 	{
-		"caption": "Reveal",
+		"caption": "Open Containing Folder",
 		"id": "side-bar-reveal",
 		"command": "side_bar_reveal",
 		"args": {

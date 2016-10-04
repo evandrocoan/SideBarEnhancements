@@ -65,7 +65,7 @@ Cache.cached = False
 class OpenWithListener(sublime_plugin.EventListener):
 	def on_load_async(self, view):
 		if view and view.file_name() and not view.settings().get('open_with_edit'):
-			item = SideBarItem(os.path.join(sublime.packages_path(), 'User', 'SideBarEnhancements', 'Open With', 'Side Bar.sublime-menu'), False)
+			item = SideBarItem(os.path.join(sublime.packages_path(), 'User', 'EnhancedSideBar', 'Open With', 'Side Bar.sublime-menu'), False)
 			if item.exists():
 				settings = sublime.decode_value(item.contentUTF8())
 				selection = SideBarSelection([view.file_name()])
@@ -217,9 +217,9 @@ class SideBarFilesOpenWithEditApplicationsCommand(sublime_plugin.WindowCommand):
 		else:
 			platform = 'Linux'
 
-		item = SideBarItem(os.path.join(sublime.packages_path(), 'User', 'SideBarEnhancements', 'Open With', 'Side Bar.sublime-menu'), False)
+		item = SideBarItem(os.path.join(sublime.packages_path(), 'User', 'EnhancedSideBar', 'Open With', 'Side Bar.sublime-menu'), False)
 		if not item.exists() and False:
-			item = SideBarItem(os.path.join(sublime.packages_path(), 'User', 'SideBarEnhancements', 'Open With', 'Side Bar ('+platform+').sublime-menu'), False)
+			item = SideBarItem(os.path.join(sublime.packages_path(), 'User', 'EnhancedSideBar', 'Open With', 'Side Bar ('+platform+').sublime-menu'), False)
 
 		if not item.exists():
 			item.create()
@@ -418,7 +418,7 @@ class SideBarFindFilesPathContainingCommand(sublime_plugin.WindowCommand):
 		view = Window().new_file()
 		view.settings().set('word_wrap', False)
 		view.set_name('Instant File Search')
-		view.set_syntax_file('Packages/SideBarEnhancements/SideBar Results.hidden-tmLanguage')
+		view.set_syntax_file('Packages/EnhancedSideBar/SideBar Results.hidden-tmLanguage')
 		view.set_scratch(True)
 		view.run_command('insert', {"characters": "Type to search: "})
 		view.sel().clear()
@@ -529,7 +529,7 @@ class SideBarFindFilesPathContainingSearchThread(threading.Thread):
 	def match_string(self, path):
 		return self.searchTerm in path and not [1 for s in self.ignore_paths if s in path]
 
-class SideBarEnhancementsWriteToViewCommand(sublime_plugin.TextCommand):
+class EnhancedSideBarWriteToViewCommand(sublime_plugin.TextCommand):
 	def run(self, edit, content, position, searchTerm):
 		if Object.sidebar_instant_search_id == searchTerm:
 			view = self.view
@@ -540,7 +540,7 @@ class SideBarEnhancementsWriteToViewCommand(sublime_plugin.TextCommand):
 
 class SideBarCutCommand(sublime_plugin.WindowCommand):
 	def run(self, paths = []):
-		s = sublime.load_settings("SideBarEnhancements/Clipboard.sublime-settings")
+		s = sublime.load_settings("EnhancedSideBar/Clipboard.sublime-settings")
 		items = []
 		for item in SideBarSelection(paths).getSelectedItemsWithoutChildItems():
 			items.append(item.path())
@@ -558,7 +558,7 @@ class SideBarCutCommand(sublime_plugin.WindowCommand):
 
 class SideBarCopyCommand(sublime_plugin.WindowCommand):
 	def run(self, paths = []):
-		s = sublime.load_settings("SideBarEnhancements/Clipboard.sublime-settings")
+		s = sublime.load_settings("EnhancedSideBar/Clipboard.sublime-settings")
 		items = []
 		for item in SideBarSelection(paths).getSelectedItemsWithoutChildItems():
 			items.append(item.path())
@@ -580,7 +580,7 @@ class SideBarPasteCommand(sublime_plugin.WindowCommand):
 		SideBarPasteThread(paths, in_parent, test, replace, key).start()
 
 	def is_enabled(self, paths = [], in_parent = False):
-		s = sublime.load_settings("SideBarEnhancements/Clipboard.sublime-settings")
+		s = sublime.load_settings("EnhancedSideBar/Clipboard.sublime-settings")
 		return (s.get('cut', '') + s.get('copy', '')) != '' and len(CACHED_SELECTION(paths).getSelectedDirectoriesOrDirnames()) == 1
 
 	def is_visible(self, paths = [], in_parent = False):
@@ -605,7 +605,7 @@ class SideBarPasteCommand2(sublime_plugin.WindowCommand):
 	def run(self, paths = [], in_parent = 'False', test = 'True', replace = 'False', key = ''):
 		window_set_status(key, 'Pasting…')
 
-		s = sublime.load_settings("SideBarEnhancements/Clipboard.sublime-settings")
+		s = sublime.load_settings("EnhancedSideBar/Clipboard.sublime-settings")
 
 		cut = s.get('cut', '')
 		copy = s.get('copy', '')
@@ -1546,7 +1546,7 @@ class SideBarProjectOpenFileCommand(sublime_plugin.WindowCommand):
 
 class SideBarPreviewEditUrlsCommand(sublime_plugin.WindowCommand):
 	def run(self, paths = []):
-		item = SideBarItem(os.path.dirname(sublime.packages_path())+'/Settings/SideBarEnhancements.json', False)
+		item = SideBarItem(os.path.dirname(sublime.packages_path())+'/Settings/EnhancedSideBar.json', False)
 		item.dirnameCreate();
 		item.edit();
 

@@ -191,7 +191,20 @@ class SideBarSelection:
 		return new_list
 
 	def isNone(self, path):
-		if path == None or path == '' or path == '.' or path == '..' or path == './' or path == '../' or path == '/' or path == '//' or path == '\\' or path == '\\\\' or path == '\\\\\\\\' or path == '\\\\?\\' or path == '\\\\?' or path == '\\\\\\\\?\\\\':
+		if path == None or \
+			path == '' or \
+			path == '.' or \
+			path == '..' or \
+			path == './' or \
+			path == '../' or \
+			path == '/' or \
+			path == '//' or \
+			path == '\\' or \
+			path == '\\\\' or \
+			path == '\\\\\\\\' or \
+			path == '\\\\?\\' or \
+			path == '\\\\?' or \
+			path == '\\\\\\\\?\\\\':
 			return True
 		else:
 			return False
@@ -293,15 +306,15 @@ class SideBarItem:
 
 		# scans a la htaccess
 		item = SideBarItem(self.path(), self.isDirectory())
-		while not os.path.exists(item.join('.sublime/SideBarEnhancements.json')):
+		while not os.path.exists(item.join('.sublime/EnhancedSideBar.json')):
 			if item.dirname() == item.path():
 				break;
 			item.path(item.dirname())
-		item  = SideBarItem(item.join('.sublime/SideBarEnhancements.json'), False);
+		item  = SideBarItem(item.join('.sublime/EnhancedSideBar.json'), False);
 		if item.exists():
 			filenames.append(item.path())
 
-		filenames.append(os.path.dirname(sublime.packages_path())+'/Settings/SideBarEnhancements.json')
+		filenames.append(os.path.dirname(sublime.packages_path())+'/Settings/EnhancedSideBar.json')
 
 		import collections
 		for filename in filenames:
@@ -513,7 +526,7 @@ class SideBarItem:
 	def overwrite(self):
 		overwrite = sublime.ok_cancel_dialog("Destination exists", "Delete, and overwrite")
 		if overwrite:
-			from SideBarEnhancements.send2trash import send2trash
+			from EnhancedSideBar.send2trash import send2trash
 			send2trash(self.path())
 			return True
 		else:

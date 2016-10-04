@@ -228,6 +228,10 @@ Q: Can the package stop "show preview in a **right** click to a file".
 
 ## Change Log
 
+Update 2.0.0
+
+-   Non-existent (NOTE: aligning non-semver versions with semver versions with this release, no changes made)
+
 Update 1.0.0
 
 -   Change versioning to [semver 2.0.0](http://semver.org)

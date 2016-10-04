@@ -228,6 +228,11 @@ Q: Can the package stop "show preview in a **right** click to a file".
 
 ## Change Log
 
+Update 1.0.0
+
+-   Change versioning to [semver 2.0.0](http://semver.org)
+-   Removed donation links
+
 Update 2.151010
 
 -   add option "statusbar_modified_time_locale" to avoid broken locales on Windows

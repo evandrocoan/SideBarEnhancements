@@ -1,65 +1,37 @@
 # Sidebar Enhancements
 
-I decided to stop using package control to distribute my packages. However if you still wish to use it to install this package, you may do the following:
+## Installation
+
+With [Package Control](http://wbond.net/sublime_packages/package_control) (recommended):
+
+1. Run "Package Control: Install Package" command, find and install `EnhancedSideBar` plugin.
+2. Restart Sublime Text
+
+or, Directly from the Github repository (using Package Control):
 
 1. Main menu bar - Preferences - Package Control
 2. Add repository
-3. Then paste https://github.com/titoBouzout/SideBarEnhancements/tree/st3
-
-Now you should see it to install. In case that does not work or if you prefer to install it manually:
-
-1. Download the package as a zip
-2. Main menu bar - Preferences - Browse Packages 
-3. Create a folder named "SideBarEnhancements", then extract the repository there. 
-
-Good luck, take care!
-
-### In other languages
-
-Japanese - <http://taamemo.blogspot.jp/2012/10/sublime-text-2-sidebarenhancements.html?m=1>
-Russian - <https://www.youtube.com/watch?v=8I0dJTd58kI&feature=youtu.be&a>
+3. Then paste https://github.com/ronelliott/EnhancedSideBar
 
 ## Description
 
-### [Sublime Text 3+][] Package, It does NOT WORK with ST2, DOES NOT; Use Sublime Text 3 Please.
+### NOTE: NOT COMPATIBLE WITH SUBLIME TEXT 2
 
-Provides enhancements to the operations on Sidebar of Files and Folders for Sublime Text. <http://www.sublimetext.com/>
+* Enhancements operations on Sidebar of Files and Folders for Sublime Text. <http://www.sublimetext.com/>
 
-Notably provides delete as "move to trash", open with.. and a clipboard.
+* Notably provides delete as "move to trash", open with.. and a clipboard.
 
-Close, move, open and restore buffers affected by a rename/move command. (even on folders)
+* Close, move, open and restore buffers affected by a rename/move command. (even on folders)
 
-Provides the basics: new file/folder, edit, open/run, reveal, find in selected/parent/project, cut, copy, paste, paste in parent, rename, move, delete, refresh....
+* Provides the basics: new file/folder, edit, open/run, reveal, find in selected/parent/project, cut, copy, paste, paste in parent, rename, move, delete, refresh....
 
-The not so basic: copy paths as URIs, URLs, content as UTF8, content as <data:uri> base64 ( nice for embedding into CSS! ), copy as tags img/a/script/style, duplicate
+* The not so basic: copy paths as URIs, URLs, content as UTF8, content as <data:uri> base64 ( nice for embedding into CSS! ), copy as tags img/a/script/style, duplicate
 
-Preference to control if a buffer should be closed when affected by a deletion operation.
+* Preference to control if a buffer should be closed when affected by a deletion operation.
 
-Allows to display "file modified date" and "file size" on statusbar.
+* Allows the display of "file modified date" and "file size" in the statusbar.
 
 ![][]
-
-## Installation
-
-Download or clone the contents of this repository to a folder named exactly as the package name into the Packages/ folder of ST.
-
-Troubleshooting Installation:
-
-If you have problems with the installation, do this:
-
--   First please note this package only adds a context menu to the "Folders" section and not to the "Open Files" section.
--   Open the package folder. Main menu -\> Preferences -\> Browse Packages.
--   Close Sublime Text.
--   Remove the folder "Packages/SideBarEnhancements"
--   Remove the folder "User/SideBarEnhancements"
--   Navigate one folder up, to "Installed Packages/", check for any instance of SideBarEnhancements and remove it.
--   Open ST, with Package Control go to : Remove Package, check for any instance of SideBarEnhancements and remove it.
--   Restart ST
--   Open ST, check if there is any entry about SideBarEnhancements in Package Control(in sections: "Remove Package" and just in case in "Enable Package")
--   Repeat until you find there no entry about SideBarEnhancements
--   Restart ST
--   Install it.
--   It works
 
 ## F12 key
 
@@ -78,11 +50,11 @@ F12 key allows you to open the current file in browser.
 <!-- -->
 
     {
-        "S:/www/domain.tld":{
+        "/www/domain.tld":{
             "url_testing":"http://testing",
             "url_production":"http://domain.tld"
         },
-        "C:/Users/luna/some/domain2.tld":{
+        "/home/user/some/domain2.tld":{
             "url_testing":"http://testing1",
             "url_production":"http://productiontld2"
         }
@@ -100,7 +72,7 @@ Imagine we have a project with the following structure
 
 Then we create configuration file:
 
-`Project/.sublime/SideBarEnhancements.json`
+`Project/.sublime/EnchancedSideBar.json`
 
 with content:
 
@@ -121,7 +93,7 @@ with content:
 
 ...
 
-You can create config files `some/folder/.sublime/SideBarEnhancements.json` anywhere.
+You can create config files `some/folder/.sublime/EnchancedSideBar.json` anywhere.
 
 #### F12 key conflict
 
@@ -148,7 +120,7 @@ On Sublime Text 3 `F12` key is bound to `"goto_definition"` command by default. 
 
 ## Notes on configuring the `Open With` menu:
 
-Definitions file: `User/SideBarEnhancements/Open With/Side Bar.sublime-menu` (note the extra subfolder levels). To open it, right-click on any file in an open project and select `Open With > Edit Applications...`
+Definitions file: `User/EnchancedSideBar/Open With/Side Bar.sublime-menu` (note the extra subfolder levels). To open it, right-click on any file in an open project and select `Open With > Edit Applications...`
 
 -   On OSX, the 'application' property simply takes the *name* of an application, to which the file at hand's full path will be passed as if with `open ...`, e.g.: "application": "Google Chrome"
 -   On OSX, invoking *shell* commands is NOT supported.
@@ -191,15 +163,11 @@ Q: Can the package stop "show preview in a **right** click to a file".
 
 ## Source-code
 
-<https://github.com/titoBouzout/SideBarEnhancements>
-
-## Forum Thread
-
-<http://www.sublimetext.com/forum/viewtopic.php?f=5&t=3331>
+<https://github.com/ronelliott/EnhancedSideBar>
 
 # Contributors:
 
-(Thank you so much!)
+-   Tito Bouzout
 -   bofm
 -   Dalibor Simacek
 -   Devin Rhode
@@ -221,12 +189,14 @@ Q: Can the package stop "show preview in a **right** click to a file".
 -   Yaroslav Admin
 -   Aleksandar Urosevic
 -   MauriceZ
-
-## TODO
-
-<https://github.com/titoBouzout/SideBarEnhancements/issues/223>
+-   Ron Elliott
 
 ## Change Log
+
+Update 3.0.0
+
+-   Cleaned up README.md
+-   Update project name in various places.
 
 Update 2.0.0
 
@@ -271,11 +241,11 @@ Update 2.0.4
 Update 2.0.3
 
 -   copy image cant' copy image sizes
--   fix canary <https://github.com/titoBouzout/SideBarEnhancements/commit/0d23f3e10650ec8e3792cd7a7f0ceaec2ae84fcb>
+-   fix canary <https://github.com/ronelliott/EnhancedSideBar/commit/0d23f3e10650ec8e3792cd7a7f0ceaec2ae84fcb>
 -   Apply patch for ubuntu encrypted folder bug. <https://github.com/hsoft/send2trash/issues/1#issuecomment-31734060>
 -   open in default browser OSX
 -   Relative vs absolute in project folders
--   Allow mass rename of folders and files <https://github.com/titoBouzout/SideBarEnhancements/commit/dbdaaffa4a53411b1d39337f7ceee6ecef9b73cb>
+-   Allow mass rename of folders and files <https://github.com/ronelliott/EnhancedSideBar/commit/dbdaaffa4a53411b1d39337f7ceee6ecef9b73cb>
 -   correctly open folders in a new window on mac os x
 
 Update 2.0.2
@@ -408,14 +378,8 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/gpl.html>
 
-## Helpful!? Support, Many thanks ^_^
-
-[Donate to support this project.][]
-
   [Sublime Text 3+]: http://www.sublimetext.com/
-  []: http://dl.dropbox.com/u/43596449/tito/sublime/SideBar/screenshot.png
+  []: https://dl.dropboxusercontent.com/u/8791590/EnhancedSideBar/screenshot.png
   [desktop]: http://pypi.python.org/pypi/desktop
   [Send2Trash]: http://pypi.python.org/pypi/Send2Trash
   [bfg-pages]: http://code.google.com/p/bfg-pages/
-  [tito.bouzout@gmail.com]: tito.bouzout@gmail.com
-  [Donate to support this project.]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DD4SL2AHYJGBW

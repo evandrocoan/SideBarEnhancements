@@ -12,9 +12,17 @@
 							"children":
 							[
 									{
-											"caption": "Side Bar",
+											"caption": "SideBarEnhancements",
 											"children":
 											[
+                                                    {
+                                                        "caption": "Side-by-side Settings",
+                                                        "command": "edit_settings",
+                                                        "args": {
+                                                            "base_file": "${packages}/SideBarEnhancements/Side Bar.sublime-settings",
+                                                            "default": "// Your settings for SideBarEnhancements. See the default file to see the different options. \n{\n\t$0\n}\n"
+                                                        }
+                                                    },
 													{
 															"command": "open_file", "args":
 															{

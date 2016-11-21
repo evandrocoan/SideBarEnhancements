@@ -4,99 +4,99 @@
 		"command": "aaaaa_side_bar"
     },
 	{
-		"caption": "SideBarEnhancements: New File Relative to Current View",
+		"caption": "Side Bar Enhancements: New File Relative to Current View",
 		"command": "side_bar_new_file"
     },
 	{
-		"caption": "SideBarEnhancements: New File Relative to Project Root",
+		"caption": "Side Bar Enhancements: New File Relative to Project Root",
 		"command": "side_bar_new_file2"
     },
 	{
-		"caption": "SideBarEnhancements: New Folder Relative to Current View",
+		"caption": "Side Bar Enhancements: New Folder Relative to Current View",
 		"command": "side_bar_new_directory"
     },
 	{
-		"caption": "SideBarEnhancements: New Folder Relative to Project Root",
+		"caption": "Side Bar Enhancements: New Folder Relative to Project Root",
 		"command": "side_bar_new_directory2"
     },
 	{
-		"caption": "SideBarEnhancements: Rename",
+		"caption": "Side Bar Enhancements: Rename",
 		"command": "side_bar_rename"
     },
 	{
-		"caption": "SideBarEnhancements: Duplicate",
+		"caption": "Side Bar Enhancements: Duplicate",
 		"command": "side_bar_duplicate"
     },
 	{
-		"caption": "SideBarEnhancements: Reveal",
+		"caption": "Side Bar Enhancements: Reveal",
 		"command": "side_bar_reveal"
     },
 	{
-		"caption": "SideBarEnhancements: Locate",
+		"caption": "Side Bar Enhancements: Locate",
 		"command": "reveal_in_side_bar"
     },
 	{
-		"caption": "SideBarEnhancements: Move",
+		"caption": "Side Bar Enhancements: Move",
 		"command": "side_bar_move"
     },
 	{
-		"caption": "SideBarEnhancements: Delete",
+		"caption": "Side Bar Enhancements: Delete",
 		"command": "side_bar_delete"
     },
 	{
-		"caption": "SideBarEnhancements: Project Edit",
+		"caption": "Side Bar Enhancements: Project Edit",
 		"command": "side_bar_project_open_file"
     },
 	{
-		"caption": "SideBarEnhancements: Copy Name",
+		"caption": "Side Bar Enhancements: Copy Name",
 		"command": "side_bar_copy_name"
     },
 	{
-		"caption": "SideBarEnhancements: Copy Name Encoded",
+		"caption": "Side Bar Enhancements: Copy Name Encoded",
 		"command": "side_bar_copy_name_encoded"
     },
 	{
-		"caption": "SideBarEnhancements: Copy Path",
+		"caption": "Side Bar Enhancements: Copy Path",
 		"command": "side_bar_copy_path"
     },
 	{
-		"caption": "SideBarEnhancements: Copy Path (Windows)",
+		"caption": "Side Bar Enhancements: Copy Path (Windows)",
 		"command": "side_bar_copy_path_absolute_from_project_encoded_windows"
     },
 	{
-		"caption": "SideBarEnhancements: Copy Path as URI",
+		"caption": "Side Bar Enhancements: Copy Path as URI",
 		"command": "side_bar_copy_path_encoded"
     },
 	{
-		"caption": "SideBarEnhancements: Copy Path From Project",
+		"caption": "Side Bar Enhancements: Copy Path From Project",
 		"command": "side_bar_copy_path_absolute_from_project"
     },
 	{
-		"caption": "SideBarEnhancements: Copy Path From Project Encoded",
+		"caption": "Side Bar Enhancements: Copy Path From Project Encoded",
 		"command": "side_bar_copy_path_absolute_from_project_encoded"
     },
 	{
-		"caption": "SideBarEnhancements: Copy as Tag a",
+		"caption": "Side Bar Enhancements: Copy as Tag a",
 		"command": "side_bar_copy_tag_ahref"
     },
 	{
-		"caption": "SideBarEnhancements: Copy as Tag script",
+		"caption": "Side Bar Enhancements: Copy as Tag script",
 		"command": "side_bar_copy_tag_script"
     },
 	{
-		"caption": "SideBarEnhancements: Copy as Tag style",
+		"caption": "Side Bar Enhancements: Copy as Tag style",
 		"command": "side_bar_copy_tag_style"
     },
 	{
-		"caption": "SideBarEnhancements: Copy URL",
+		"caption": "Side Bar Enhancements: Copy URL",
 		"command": "side_bar_copy_url"
     },
 	{
-		"caption": "SideBarEnhancements: Search Files",
+		"caption": "Side Bar Enhancements: Search Files",
 		"command": "side_bar_find_files_path_containing"
     },
 	{
-		"caption": "SideBarEnhancements: Open In Browser - Testing Server",
+		"caption": "Side Bar Enhancements: Open In Browser - Testing Server",
 		"command": "side_bar_open_in_browser",
 		"args": {
 			"paths": [],
@@ -104,7 +104,7 @@
 		}
     },
 	{
-		"caption": "SideBarEnhancements: Open In Browser - Production Server",
+		"caption": "Side Bar Enhancements: Open In Browser - Production Server",
 		"command": "side_bar_open_in_browser",
 		"args": {
 			"paths": [],

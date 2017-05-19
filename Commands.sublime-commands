@@ -2,99 +2,99 @@
 	{
 		"caption": "aaaaa_side_bar",
 		"command": "aaaaa_side_bar"
-    },
+	},
 	{
 		"caption": "Side Bar Enhancements: New File Relative to Current View",
 		"command": "side_bar_new_file"
-    },
+	},
 	{
 		"caption": "Side Bar Enhancements: New File Relative to Project Root",
 		"command": "side_bar_new_file2"
-    },
+	},
 	{
 		"caption": "Side Bar Enhancements: New Folder Relative to Current View",
 		"command": "side_bar_new_directory"
-    },
+	},
 	{
 		"caption": "Side Bar Enhancements: New Folder Relative to Project Root",
 		"command": "side_bar_new_directory2"
-    },
+	},
 	{
-		"caption": "Side Bar Enhancements: Rename",
+		"caption": "Side Bar Enhancements: Rename File",
 		"command": "side_bar_rename"
-    },
+	},
 	{
-		"caption": "Side Bar Enhancements: Duplicate",
+		"caption": "Side Bar Enhancements: Duplicate File",
 		"command": "side_bar_duplicate"
-    },
+	},
 	{
-		"caption": "Side Bar Enhancements: Reveal",
+		"caption": "Side Bar Enhancements: Reveal (Open Containing Folder)",
 		"command": "side_bar_reveal"
-    },
+	},
 	{
-		"caption": "Side Bar Enhancements: Locate",
+		"caption": "Side Bar Enhancements: Locate (Reveal in side bar)",
 		"command": "reveal_in_side_bar"
-    },
+	},
 	{
-		"caption": "Side Bar Enhancements: Move",
+		"caption": "Side Bar Enhancements: Move File...",
 		"command": "side_bar_move"
-    },
+	},
 	{
-		"caption": "Side Bar Enhancements: Delete",
+		"caption": "Side Bar Enhancements: Delete File",
 		"command": "side_bar_delete"
-    },
+	},
 	{
 		"caption": "Side Bar Enhancements: Project Edit",
 		"command": "side_bar_project_open_file"
-    },
+	},
 	{
-		"caption": "Side Bar Enhancements: Copy Name",
+		"caption": "Side Bar Enhancements: Copy File Name",
 		"command": "side_bar_copy_name"
-    },
+	},
 	{
-		"caption": "Side Bar Enhancements: Copy Name Encoded",
+		"caption": "Side Bar Enhancements: Copy File Name Encoded",
 		"command": "side_bar_copy_name_encoded"
-    },
+	},
 	{
-		"caption": "Side Bar Enhancements: Copy Path",
+		"caption": "Side Bar Enhancements: Copy File Path",
 		"command": "side_bar_copy_path"
-    },
+	},
 	{
-		"caption": "Side Bar Enhancements: Copy Path (Windows)",
+		"caption": "Side Bar Enhancements: Copy File Path (Windows)",
 		"command": "side_bar_copy_path_absolute_from_project_encoded_windows"
-    },
+	},
 	{
-		"caption": "Side Bar Enhancements: Copy Path as URI",
+		"caption": "Side Bar Enhancements: Copy File Path as URI",
 		"command": "side_bar_copy_path_encoded"
-    },
+	},
 	{
-		"caption": "Side Bar Enhancements: Copy Path From Project",
+		"caption": "Side Bar Enhancements: Copy File Path From Project",
 		"command": "side_bar_copy_path_absolute_from_project"
-    },
+	},
 	{
-		"caption": "Side Bar Enhancements: Copy Path From Project Encoded",
+		"caption": "Side Bar Enhancements: Copy File Path From Project Encoded",
 		"command": "side_bar_copy_path_absolute_from_project_encoded"
-    },
+	},
 	{
-		"caption": "Side Bar Enhancements: Copy as Tag a",
+		"caption": "Side Bar Enhancements: Copy as Tag a HTML HiperLink",
 		"command": "side_bar_copy_tag_ahref"
-    },
+	},
 	{
 		"caption": "Side Bar Enhancements: Copy as Tag script",
 		"command": "side_bar_copy_tag_script"
-    },
+	},
 	{
 		"caption": "Side Bar Enhancements: Copy as Tag style",
 		"command": "side_bar_copy_tag_style"
-    },
+	},
 	{
-		"caption": "Side Bar Enhancements: Copy URL",
+		"caption": "Side Bar Enhancements: Copy File Path as URL",
 		"command": "side_bar_copy_url"
-    },
+	},
 	{
 		"caption": "Side Bar Enhancements: Search Files",
 		"command": "side_bar_find_files_path_containing"
-    },
+	},
 	{
 		"caption": "Side Bar Enhancements: Open In Browser - Testing Server",
 		"command": "side_bar_open_in_browser",
@@ -102,7 +102,7 @@
 			"paths": [],
 			"type": "testing"
 		}
-    },
+	},
 	{
 		"caption": "Side Bar Enhancements: Open In Browser - Production Server",
 		"command": "side_bar_open_in_browser",
@@ -110,13 +110,13 @@
 			"paths": [],
 			"type": "production"
 		}
-    },
+	},
 	{
 		"caption": "Side Bar: Refresh",
 		"command": "refresh_folder_list"
-    },
-    {
+	},
+	{
 		"caption": "zzzzz_side_bar",
 		"command": "zzzzz_side_bar"
-    },
+	},
 ]

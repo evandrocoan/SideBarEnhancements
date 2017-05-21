@@ -25,10 +25,10 @@ try:
 			https://forum.sublimetext.com/t/is-possible-to-auto-complete-file-names-on-panels/28415
 		"""
 
-	    def on_post_window_command(self, window, command, args):
+		def on_post_window_command(self, window, command, args):
 
-	        if command == "hide_panel":
-	            NameComplete.isOnFilePathPanel = False
+			if command == "hide_panel":
+				NameComplete.isOnFilePathPanel = False
 
 except:
 	class NameComplete():

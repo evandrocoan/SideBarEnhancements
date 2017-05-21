@@ -10,8 +10,29 @@ from .hurry.filesize import size as hurry_size
 
 try:
 	from urllib import unquote as urlunquote
+
 except ImportError:
 	from urllib.parse import unquote as urlunquote
+
+# How to change a module variable from another module?
+# http://stackoverflow.com/questions/3536620/how-to-change-a-module-variable-from-another-module
+try:
+	from AutoFileName.autofilename import FileNameComplete as NameComplete
+
+	class AutoFileNameListener(sublime_plugin.EventListener):
+		"""
+			Is possible to auto complete file names on panels?
+			https://forum.sublimetext.com/t/is-possible-to-auto-complete-file-names-on-panels/28415
+		"""
+
+	    def on_post_window_command(self, window, command, args):
+
+	        if command == "hide_panel":
+	            NameComplete.isOnFilePathPanel = False
+
+except:
+	class NameComplete():
+		isOnFilePathPanel = False
 
 from .SideBarAPI import SideBarItem, SideBarSelection, SideBarProject
 
@@ -1276,6 +1297,7 @@ class SideBarMoveCommand(sublime_plugin.WindowCommand):
 		view = Window().show_input_panel("New Location:", new or SideBarSelection(paths).getSelectedItems()[0].path(), functools.partial(self.on_done, SideBarSelection(paths).getSelectedItems()[0].path()), None, None)
 		view.sel().clear()
 		view.sel().add(sublime.Region(view.size()-len(SideBarSelection(paths).getSelectedItems()[0].name()), view.size()-len(SideBarSelection(paths).getSelectedItems()[0].extension())))
+		NameComplete.isOnFilePathPanel = True
 
 	def on_done(self, old, new):
 		key = 'move-'+str(time.time())
@@ -1312,6 +1334,7 @@ class SideBarMoveThread(threading.Thread):
 			SideBarMoveCommand(sublime_plugin.WindowCommand).run([old], new)
 			raise
 			return
+
 		SideBarProject().refresh();
 		window_set_status(key, '')
 

@@ -25,10 +25,15 @@ try:
 			https://forum.sublimetext.com/t/is-possible-to-auto-complete-file-names-on-panels/28415
 		"""
 
+		# Notice, when the input panel is closed by `enter` the `hide_panel` command is not called
+		# https://github.com/SublimeTextIssues/Core/issues/1827
 		def on_post_window_command(self, window, command, args):
 
 			if command == "hide_panel":
 				NameComplete.isOnFilePathPanel = False
+
+		# def on_selection_modified_async(self,view):
+		# 	print( "NameComplete.isOnFilePathPanel: " + str( NameComplete.isOnFilePathPanel ) )
 
 except:
 	class NameComplete():
@@ -1302,6 +1307,7 @@ class SideBarMoveCommand(sublime_plugin.WindowCommand):
 	def on_done(self, old, new):
 		key = 'move-'+str(time.time())
 		SideBarMoveThread(old, new, key).start()
+		NameComplete.isOnFilePathPanel = False
 
 	def is_enabled(self, paths = []):
 		return CACHED_SELECTION(paths).len() == 1 and CACHED_SELECTION(paths).hasProjectDirectories() == False

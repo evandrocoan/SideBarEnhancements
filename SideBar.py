@@ -67,8 +67,8 @@ def plugin_loaded():
 	s.clear_on_change('reload')
 	s.add_on_change('reload', lambda:Pref.load())
 
-def Window():
-	return sublime.active_window()
+def Window(window = None):
+	return window if window else sublime.active_window()
 
 def expandVars(path):
 	for k, v in list(os.environ.items()):
@@ -98,7 +98,7 @@ class OpenWithListener(sublime_plugin.EventListener):
 				for item in settings[0]['children']:
 					try:
 						if item['open_automatically'] and selection.hasFilesWithExtension(item['args']['extensions']):
-							SideBarFilesOpenWithCommand(sublime_plugin.WindowCommand).run([view.file_name()], item['args']['application'], item['args']['extensions'])
+							SideBarFilesOpenWithCommand(Window()).run([view.file_name()], item['args']['application'], item['args']['extensions'], item['args']['args'])
 							view.window().run_command('close')
 							break
 					except:
@@ -119,22 +119,23 @@ class SideBarNewFileCommand(sublime_plugin.WindowCommand):
 		Window().show_input_panel("File Name:", name, functools.partial(self.on_done, paths, False), None, None)
 
 	def on_done(self, paths, relative_to_project, name):
+		_paths = paths
 		if relative_to_project or s.get('new_files_relative_to_project_root', False):
-			paths = SideBarProject().getDirectories()
-			if paths:
-				paths = [SideBarItem(paths[0], False)]
-			if not paths:
-				paths = SideBarSelection(paths).getSelectedDirectoriesOrDirnames()
+			_paths = SideBarProject().getDirectories()
+			if _paths:
+				_paths = [SideBarItem(_paths[0], False)]
+			if not _paths:
+				_paths = SideBarSelection(_paths).getSelectedDirectoriesOrDirnames()
 		else:
-			paths = SideBarSelection(paths).getSelectedDirectoriesOrDirnames()
-		if not paths:
-			paths = SideBarProject().getDirectories()
-			if paths:
-				paths = [SideBarItem(paths[0], False)]
-		if not paths:
-			sublime.active_window().new_file()
+			_paths = SideBarSelection(_paths).getSelectedDirectoriesOrDirnames()
+		if not _paths:
+			_paths = SideBarProject().getDirectories()
+			if _paths:
+				_paths = [SideBarItem(_paths[0], False)]
+		if not _paths:
+			Window().new_file()
 		else:
-			for item in paths:
+			for item in _paths:
 				item = SideBarItem(item.join(name), False)
 				if item.exists():
 					sublime.error_message("Unable to create file, file or folder exists.")
@@ -154,13 +155,13 @@ class SideBarNewFile2Command(sublime_plugin.WindowCommand):
 	def run(self, paths = [], name = ""):
 		import functools
 		Window().run_command('hide_panel');
-		Window().show_input_panel("File Name:", name, functools.partial(SideBarNewFileCommand(sublime_plugin.WindowCommand).on_done, paths, True), None, None)
+		Window().show_input_panel("File Name:", name, functools.partial(SideBarNewFileCommand(Window()).on_done, paths, True), None, None)
 
 class SideBarNewDirectory2Command(sublime_plugin.WindowCommand):
 	def run(self, paths = [], name = ""):
 		import functools
 		Window().run_command('hide_panel');
-		Window().show_input_panel("Folder Name:", name, functools.partial(SideBarNewDirectoryCommand(sublime_plugin.WindowCommand).on_done, paths, True), None, None)
+		Window().show_input_panel("Folder Name:", name, functools.partial(SideBarNewDirectoryCommand(Window()).on_done, paths, True), None, None)
 
 class SideBarNewDirectoryCommand(sublime_plugin.WindowCommand):
 	def run(self, paths = [], name = ""):
@@ -169,16 +170,17 @@ class SideBarNewDirectoryCommand(sublime_plugin.WindowCommand):
 		Window().show_input_panel("Folder Name:", name, functools.partial(self.on_done, paths, False), None, None)
 
 	def on_done(self, paths, relative_to_project, name):
+		_paths = paths
 		if relative_to_project or s.get('new_folders_relative_to_project_root', False):
-			paths = SideBarProject().getDirectories()
-			if paths:
-				paths = [SideBarItem(paths[0], True)]
-			if not paths:
-				paths = SideBarSelection(paths).getSelectedDirectoriesOrDirnames()
+			_paths = SideBarProject().getDirectories()
+			if _paths:
+				_paths = [SideBarItem(_paths[0], True)]
+			if not _paths:
+				_paths = SideBarSelection(_paths).getSelectedDirectoriesOrDirnames()
 		else:
-			paths = SideBarSelection(paths).getSelectedDirectoriesOrDirnames()
+			_paths = SideBarSelection(_paths).getSelectedDirectoriesOrDirnames()
 
-		for item in paths:
+		for item in _paths:
 			item = SideBarItem(item.join(name), True)
 			if item.exists():
 				sublime.error_message("Unable to create folder, folder or file exists.")
@@ -357,7 +359,7 @@ class SideBarFilesOpenWithCommand(sublime_plugin.WindowCommand):
 
 class SideBarFindInSelectedCommand(sublime_plugin.WindowCommand):
 	def run(self, paths = []):
-		window = sublime.active_window()
+		window = Window()
 		views = []
 		for view in window.views():
 			if view.name() == 'Find Results':
@@ -625,7 +627,7 @@ class SideBarPasteThread(threading.Thread):
 		threading.Thread.__init__(self)
 
 	def run(self):
-		SideBarPasteCommand2(sublime_plugin.WindowCommand).run(self.paths, self.in_parent, self.test, self.replace, self.key)
+		SideBarPasteCommand2(Window()).run(self.paths, self.in_parent, self.test, self.replace, self.key)
 
 class SideBarPasteCommand2(sublime_plugin.WindowCommand):
 	def run(self, paths = [], in_parent = 'False', test = 'True', replace = 'False', key = ''):
@@ -704,7 +706,7 @@ class SideBarPasteCommand2(sublime_plugin.WindowCommand):
 
 	def confirm(self, paths, in_parent, data, key):
 		import functools
-		window = sublime.active_window()
+		window = Window()
 		window.show_input_panel("BUG!", '', '', None, None)
 		window.run_command('hide_panel');
 
@@ -1166,12 +1168,12 @@ class SideBarDuplicateThread(threading.Thread):
 				if SideBarItem(new, os.path.isdir(new)).overwrite():
 					self.run()
 				else:
-					SideBarDuplicateCommand(sublime_plugin.WindowCommand).run([old], new)
+					SideBarDuplicateCommand(Window()).run([old], new)
 				return
 		except:
 			window_set_status(key, '')
 			sublime.error_message("Unable to copy:\n\n"+old+"\n\nto\n\n"+new)
-			SideBarDuplicateCommand(sublime_plugin.WindowCommand).run([old], new)
+			SideBarDuplicateCommand(Window()).run([old], new)
 			return
 		item = SideBarItem(new, os.path.isdir(new))
 		if item.isFile():
@@ -1220,11 +1222,11 @@ class SideBarRenameThread(threading.Thread):
 					self.run()
 				else:
 					window_set_status(key, '')
-					SideBarRenameCommand(sublime_plugin.WindowCommand).run([old], leaf)
+					SideBarRenameCommand(Window()).run([old], leaf)
 		except:
 			window_set_status(key, '')
 			sublime.error_message("Unable to rename:\n\n"+old+"\n\nto\n\n"+new)
-			SideBarRenameCommand(sublime_plugin.WindowCommand).run([old], leaf)
+			SideBarRenameCommand(Window()).run([old], leaf)
 			raise
 			return
 		SideBarProject().refresh();
@@ -1332,12 +1334,12 @@ class SideBarMoveThread(threading.Thread):
 					self.run()
 				else:
 					window_set_status(key, '')
-					SideBarMoveCommand(sublime_plugin.WindowCommand).run([old], new)
+					SideBarMoveCommand(Window()).run([old], new)
 				return
 		except:
 			window_set_status(key, '')
 			sublime.error_message("Unable to move:\n\n"+old+"\n\nto\n\n"+new)
-			SideBarMoveCommand(sublime_plugin.WindowCommand).run([old], new)
+			SideBarMoveCommand(Window()).run([old], new)
 			raise
 			return
 
@@ -1350,7 +1352,7 @@ class SideBarDeleteThread(threading.Thread):
 		threading.Thread.__init__(self)
 
 	def run(self):
-		SideBarDeleteCommand(sublime_plugin.WindowCommand)._delete_threaded(self.paths)
+		SideBarDeleteCommand(Window())._delete_threaded(self.paths)
 
 class SideBarDeleteCommand(sublime_plugin.WindowCommand):
 	def run(self, paths = [], confirmed = 'False'):
@@ -1395,7 +1397,7 @@ class SideBarDeleteCommand(sublime_plugin.WindowCommand):
 
 	def confirm(self, paths, display_paths):
 		import functools
-		window = sublime.active_window()
+		window = Window()
 		window.show_input_panel("BUG!", '', '', None, None)
 		window.run_command('hide_panel');
 
@@ -1496,7 +1498,7 @@ class SideBarEmptyCommand(sublime_plugin.WindowCommand):
 
 	def confirm(self, paths, display_paths):
 		import functools
-		window = sublime.active_window()
+		window = Window()
 		window.show_input_panel("BUG!", '', '', None, None)
 		window.run_command('hide_panel');
 

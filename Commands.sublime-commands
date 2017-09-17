@@ -60,7 +60,11 @@
 		"command": "side_bar_copy_path"
 	},
 	{
-		"caption": "Side Bar Enhancements: Copy File Path (Windows)",
+		"caption": "File: Copy Path Quoted",
+		"command": "side_bar_copy_path_quoted"
+    },
+	{
+		"caption": "File: Copy Path (Windows)",
 		"command": "side_bar_copy_path_absolute_from_project_encoded_windows"
 	},
 	{

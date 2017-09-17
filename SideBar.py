@@ -330,9 +330,15 @@ class SideBarFilesOpenWithCommand(sublime_plugin.WindowCommand):
 				if sublime.platform() == 'osx':
 					subprocess.Popen(['open', '-a', application] + args + [item.name()], cwd=item.dirname())
 				elif sublime.platform() == 'windows':
-					subprocess.Popen([application_name] + args + [escapeCMDWindows(item.path())], cwd=expandVars(application_dir), shell=True)
+					try:
+						subprocess.Popen([application_name] + args + [escapeCMDWindows(item.path())], cwd=expandVars(application_dir), shell=True)
+					except:
+						subprocess.Popen([application_name] + args + [escapeCMDWindows(item.path())], shell=True)
 				else:
-					subprocess.Popen([application_name] + args + [escapeCMDWindows(item.name())], cwd=item.dirname())
+					try:
+						subprocess.Popen([application_name] + args + [escapeCMDWindows(item.name())], cwd=item.dirname())
+					except:
+						subprocess.Popen([application_name] + args + [escapeCMDWindows(item.name())])
 		except:
 			sublime.error_message('Unable to "Open With..", probably incorrect path to application.')
 
@@ -772,6 +778,22 @@ class SideBarCopyPathCommand(sublime_plugin.WindowCommand):
 		items = []
 		for item in SideBarSelection(paths).getSelectedItems():
 			items.append(item.path())
+
+		if len(items) > 0:
+			sublime.set_clipboard("\n".join(items));
+			if len(items) > 1 :
+				sublime.status_message("Items copied")
+			else :
+				sublime.status_message("Item copied")
+
+	def is_enabled(self, paths = []):
+		return CACHED_SELECTION(paths).len() > 0
+
+class SideBarCopyPathQuotedCommand(sublime_plugin.WindowCommand):
+	def run(self, paths = []):
+		items = []
+		for item in SideBarSelection(paths).getSelectedItems():
+			items.append('"'+item.path()+'"')
 
 		if len(items) > 0:
 			sublime.set_clipboard("\n".join(items));

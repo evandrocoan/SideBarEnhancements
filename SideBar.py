@@ -14,10 +14,11 @@ try:
 except ImportError:
 	from urllib.parse import unquote as urlunquote
 
+
 # How to change a module variable from another module?
 # http://stackoverflow.com/questions/3536620/how-to-change-a-module-variable-from-another-module
 try:
-	from AutoFileName.autofilename import FileNameComplete as NameComplete
+	from AutoFileName.autofilename import enable_autocomplete, disable_autocomplete
 
 	class AutoFileNameListener(sublime_plugin.EventListener):
 		"""
@@ -30,14 +31,15 @@ try:
 		def on_post_window_command(self, window, command, args):
 
 			if command == "hide_panel":
-				NameComplete.isOnFilePathPanel = False
-
-		# def on_selection_modified_async(self,view):
-		# 	print( "NameComplete.isOnFilePathPanel: " + str( NameComplete.isOnFilePathPanel ) )
+				disable_autocomplete()
 
 except:
-	class NameComplete():
-		isOnFilePathPanel = False
+	def enable_autocomplete():
+		pass
+
+	def disable_autocomplete():
+		pass
+
 
 from .SideBarAPI import SideBarItem, SideBarSelection, SideBarProject
 
@@ -1326,12 +1328,12 @@ class SideBarMoveCommand(sublime_plugin.WindowCommand):
 		view = Window().show_input_panel("New Location:", new or SideBarSelection(paths).getSelectedItems()[0].path(), functools.partial(self.on_done, SideBarSelection(paths).getSelectedItems()[0].path()), None, None)
 		view.sel().clear()
 		view.sel().add(sublime.Region(view.size()-len(SideBarSelection(paths).getSelectedItems()[0].name()), view.size()-len(SideBarSelection(paths).getSelectedItems()[0].extension())))
-		NameComplete.isOnFilePathPanel = True
+		enable_autocomplete()
 
 	def on_done(self, old, new):
 		key = 'move-'+str(time.time())
 		SideBarMoveThread(old, new, key).start()
-		NameComplete.isOnFilePathPanel = False
+		disable_autocomplete()
 
 	def is_enabled(self, paths = []):
 		return CACHED_SELECTION(paths).len() == 1 and CACHED_SELECTION(paths).hasProjectDirectories() == False

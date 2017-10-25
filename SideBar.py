@@ -327,8 +327,23 @@ class SideBarFilesOpenWithCommand(sublime_plugin.WindowCommand):
 		else:
 			items = SideBarSelection(paths).getSelectedFilesWithExtension(extensions)
 		import subprocess
+
 		try:
 			for item in items:
+
+				# $PATH - The full path to the current file, e. g., C:\Files\Chapter1.txt.
+				# $PROJECT - The root directory of the current project.
+				# $DIRNAME - The directory of the current file, e. g., C:\Files.
+				# $NAME - The name portion of the current file, e. g., Chapter1.txt.
+				# $EXTENSION - The extension portion of the current file, e. g., txt.
+
+				for k in range(len(args)):
+					args[k] = args[k].replace('$PATH', item.path())
+					args[k] = args[k].replace('$PROJECT', item.pathProject())
+					args[k] = args[k].replace('$DIRNAME', item.dirname())
+					args[k] = args[k].replace('$NAME', item.name())
+					args[k] = args[k].replace('$EXTENSION', item.extension())
+
 				if sublime.platform() == 'osx':
 					subprocess.Popen(['open', '-a', application] + args + [item.name()], cwd=item.dirname())
 				elif sublime.platform() == 'windows':
@@ -910,7 +925,15 @@ class SideBarCopyPathAbsoluteFromProjectCommand(sublime_plugin.WindowCommand):
 	def run(self, paths = []):
 		items = []
 		for item in SideBarSelection(paths).getSelectedItems():
-			items.append(item.pathAbsoluteFromProject())
+			if s.get('copy_path_absolute_from_project_includes_line_number', False) and item.views():
+				view = item.views()[0]
+				if view.sel():
+					line, col = view.rowcol(view.sel()[0].b)
+					items.append(item.pathAbsoluteFromProject()+':'+str(line+1))
+				else:
+					items.append(item.pathAbsoluteFromProject())
+			else:
+				items.append(item.pathAbsoluteFromProject())
 
 		if len(items) > 0:
 			sublime.set_clipboard("\n".join(items));

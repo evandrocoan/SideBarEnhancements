@@ -78,6 +78,9 @@
         "id": "side-bar-clip-copy-as",
         "children":
         [
+            { "caption": "Relative Path To Last Selected View", "id": "side-bar-clip-copy-path-relative-to-last-selected-view",
+                "command": "side_bar_copy_path_relative_to_last_selected_view", "args": {"paths": []}
+            },
             { "caption": "Relative Path From View Encoded",
                 "command": "side_bar_copy_path_relative_from_view_encoded", "args": { "paths": [] }
             },
@@ -170,6 +173,15 @@
             { "caption": "aaaaa_side_bar",
                 "command": "aaaaa_side_bar", "args": { "paths": [] } },
 
+            { "caption": "Save Views", "id": "side-bar-folder-save-views",
+                "command": "side_bar_folder_save_views", "args": {"paths": []} },
+
+            { "caption": "Close Views", "id": "side-bar-folder-close-views",
+                "command": "side_bar_folder_close_views", "args": {"paths": []} },
+
+            { "caption": "Close Other Views", "id": "side-bar-folder-close-other-views",
+                "command": "side_bar_folder_close_other_views", "args": {"paths": []} },
+
             { "caption": "Edit", "command": "side_bar_edit", "args": { "paths": [] } },
             { "caption": "Edit to Right", "command": "side_bar_edit_to_right", "args": { "paths": [] } },
 
@@ -227,6 +239,9 @@
 
                     { "caption": "Firefox", "command": "side_bar_open_in_browser",
                         "args": { "paths": [], "type": "testing", "browser": "firefox" } },
+
+                    { "caption": "Firefox Developer Edition", "command": "side_bar_open_in_browser",
+                        "args": { "paths": [], "type": "testing", "browser": "firefox-developer-edition" } },
                     { "caption": "-" },
 
                     { "caption": "Chromium", "command": "side_bar_open_in_browser",

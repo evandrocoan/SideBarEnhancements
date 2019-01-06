@@ -62,7 +62,7 @@
 	{
 		"caption": "File: Copy Path Quoted",
 		"command": "side_bar_copy_path_quoted"
-    },
+	},
 	{
 		"caption": "File: Copy Path (Windows)",
 		"command": "side_bar_copy_path_absolute_from_project_encoded_windows"
@@ -72,12 +72,20 @@
 		"command": "side_bar_copy_path_encoded"
 	},
 	{
-		"caption": "Side Bar Enhancements: Copy File Path From Project",
+		"caption": "File: Copy Path Absolute To Project",
 		"command": "side_bar_copy_path_absolute_from_project"
 	},
 	{
-		"caption": "Side Bar Enhancements: Copy File Path From Project Encoded",
+		"caption": "File: Copy Relative Path To Project",
+		"command": "side_bar_copy_path_relative_from_project"
+	},
+	{
+		"caption": "File: Copy Path Absolute To Project Encoded",
 		"command": "side_bar_copy_path_absolute_from_project_encoded"
+	},
+	{
+		"caption": "File: Copy Path Relative To Last Selected View ",
+		"command": "side_bar_copy_path_relative_to_last_selected_view"
 	},
 	{
 		"caption": "Side Bar Enhancements: Copy as Tag a HTML HiperLink",
@@ -122,5 +130,5 @@
 	{
 		"caption": "zzzzz_side_bar",
 		"command": "zzzzz_side_bar"
-	},
+	}
 ]

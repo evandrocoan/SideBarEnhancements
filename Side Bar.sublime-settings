@@ -28,17 +28,29 @@
 	"disabled_menuitem_copy_dir_path": false,
 	"disabled_menuitem_paste_in_parent": false,
 	"disabled_menuitem_empty": false,
+	"disabled_menuitem_folder_save": false,
+	"disabled_menuitem_folder_close": false,
 
-	//if installed in a default location maybe this works.
-	"default_browser": "", //one of this list: firefox, chrome, canary, chromium, opera, safari, ie
-	"open_all_browsers": ["firefox", "chrome", "opera", "safari", "ie", "edge"], //any of this list: firefox, chrome, canary, chromium, opera, safari, ie, edge
+	//one of this list: firefox, firefox-developer-edition, chrome, canary, chromium, opera, safari, ie, edge
+	"default_browser": "",
 
-	"portable_browser": "", // for example:  C:/Program Files (x86)/Nightly/firefox.exe
+	//any of this list: firefox, firefox-developer-edition, chrome, canary, chromium, opera, safari, ie, edge
+	"open_all_browsers": [
+		"firefox",
+		"firefox-developer-edition",
+		"chrome",
+		"opera",
+		"safari",
+		"ie",
+		"edge"
+	],
+
+	"portable_browser": "", // (complete path to executable) for example:  C:/Program Files (x86)/Nightly/firefox.exe
 
 	"disable_send_to_trash": false,
 
 	"use_powershell": true,
+	"use_command": "",
 
-	"auto_close_empty_groups": false
-
+	"copy_path_absolute_from_project_includes_line_number": false,
 }

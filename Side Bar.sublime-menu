@@ -288,6 +288,7 @@
                 ]
             },
 
+            { "caption": "Give 20", "command": "side_bar_donate", "args": {"paths": []} },
             { "caption": "-", "id": "side-bar-end-separator" },
 
             { "caption": "zzzzz_side_bar",

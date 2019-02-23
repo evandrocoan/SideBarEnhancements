@@ -1,0 +1,5 @@
+[
+    { "caption": "-", "id": "7_row" },
+    { "caption": "Side Bar - Cut", "command": "side_bar_cut", "args": { "paths": [] } },
+    { "caption": "Side Bar - Copy", "command": "side_bar_copy", "args": { "paths": [] } },
+]

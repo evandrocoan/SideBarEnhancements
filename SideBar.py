@@ -437,7 +437,6 @@ class SideBarFilesOpenWithEditApplicationsCommand(sublime_plugin.WindowCommand):
                 sublime.packages_path(),
                 "User",
                 "SideBarEnhancements",
-                "Open With",
                 "Side Bar.sublime-menu",
             ),
             False,
@@ -448,7 +447,6 @@ class SideBarFilesOpenWithEditApplicationsCommand(sublime_plugin.WindowCommand):
                     sublime.packages_path(),
                     "User",
                     "SideBarEnhancements",
-                    "Open With",
                     "Side Bar (" + platform + ").sublime-menu",
                 ),
                 False,
@@ -457,69 +455,63 @@ class SideBarFilesOpenWithEditApplicationsCommand(sublime_plugin.WindowCommand):
         if not item.exists():
             item.create()
             item.write(
-                """[
+                """\
+[
 	{
-		"caption": "Enhancements",
-		"id": "side-bar-enhancements",
+		"id": "side-bar-files-open-with",
 		"children":
 		[
+
+			//application 1
 			{
-				"id": "side-bar-files-open-with",
-				"children":
-				[
+				"caption": "Photoshop",
+				"id": "side-bar-files-open-with-photoshop",
 
-					//application 1
-					{
-						"caption": "Photoshop",
-						"id": "side-bar-files-open-with-photoshop",
-
-						"command": "side_bar_files_open_with",
-						"args": {
-											"paths": [],
-											"application": "Adobe Photoshop CS5.app", // OSX
-											"extensions":"psd|png|jpg|jpeg",  //any file with these extensions
-											"args":[]
-										},
-						"open_automatically" : false // will close the view/tab and launch the application
-					},
-
-					//separator
-					{"caption":"-"},
-
-					//application 2
-					{
-						"caption": "SeaMonkey",
-						"id": "side-bar-files-open-with-seamonkey",
-
-						"command": "side_bar_files_open_with",
-						"args": {
-											"paths": [],
-											"application": "C:\\\\Archivos de programa\\\\SeaMonkey\\\\seamonkey.exe", // WINNT
-											"extensions":"", //open all even folders
-											"args":[]
-										},
-						"open_automatically" : false // will close the view/tab and launch the application
-					},
-					//application n
-					{
-						"caption": "Chrome",
-						"id": "side-bar-files-open-with-chrome",
-
-						"command": "side_bar_files_open_with",
-						"args": {
-											"paths": [],
-											"application": "C:\\\\Documents and Settings\\\\tito\\\\local\\\\Datos de programa\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
-											"extensions":".*", //any file with extension
-											"args":[]
+				"command": "side_bar_files_open_with",
+				"args": {
+									"paths": [],
+									"application": "Adobe Photoshop CS5.app", // OSX
+									"extensions":"psd|png|jpg|jpeg",  //any file with these extensions
+									"args":[]
 								},
-						"open_automatically" : false // will close the view/tab and launch the application
-					},
+				"open_automatically" : false // will close the view/tab and launch the application
+			},
 
-					{"caption":"-"}
-				]
-			}
+			//separator
+			{"caption":"-"},
+
+			//application 2
+			{
+				"caption": "SeaMonkey",
+				"id": "side-bar-files-open-with-seamonkey",
+
+				"command": "side_bar_files_open_with",
+				"args": {
+									"paths": [],
+									"application": "C:\\\\Archivos de programa\\\\SeaMonkey\\\\seamonkey.exe", // WINNT
+									"extensions":"", //open all even folders
+									"args":[]
+								},
+				"open_automatically" : false // will close the view/tab and launch the application
+			},
+			//application n
+			{
+				"caption": "Chrome",
+				"id": "side-bar-files-open-with-chrome",
+
+				"command": "side_bar_files_open_with",
+				"args": {
+									"paths": [],
+									"application": "C:\\\\Documents and Settings\\\\tito\\\\local\\\\Datos de programa\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
+									"extensions":".*", //any file with extension
+									"args":[]
+						},
+				"open_automatically" : false // will close the view/tab and launch the application
+			},
+
+			{"caption":"-"}
 		]
-	},
+	}
 ]"""
             )
         item.edit()

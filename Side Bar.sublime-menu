@@ -166,6 +166,98 @@
     },
 
     {
+        "caption": "Find",
+        "id": "side-bar-find-advanced",
+        "children":
+        [
+            { "caption": "Find & Replace…",
+                "command": "side_bar_find_in_selected", "args": { "paths": [] } },
+
+            { "caption": "Find Files Named…",
+                "command": "side_bar_find_files_path_containing", "args": { "paths": [] } },
+
+            { "caption": "In Parent Folder…",
+                "command": "side_bar_find_in_parent", "args": { "paths": [] } },
+            { "caption": "-", "id": "side-bar-find-parent-separator" },
+
+            { "caption": "In Project…",
+                "command": "side_bar_find_in_project", "args": { "paths": [] } },
+
+            { "caption": "In Project Folder…",
+                "command": "side_bar_find_in_project_folder", "args": { "paths": [] }
+            },
+            { "caption": "In Project Folders…",
+                "command": "side_bar_find_in_project_folders" },
+            { "caption": "-", "id": "side-bar-find-project-separator" },
+
+            { "id": "side-bar-find-in-files-with-extension",
+                "command": "side_bar_find_in_files_with_extension", "args": { "paths": [] } },
+
+            { "caption": "In Paths Containing…",
+                "command": "side_bar_find_files_path_containing", "args": { "paths": [] } },
+            { "caption": "-", "id": "side-bar-mass-rename-separator" },
+
+            { "caption": "Mass Rename Selection…",
+                "command": "side_bar_mass_rename", "args": { "paths": [] } }
+        ]
+    },
+
+    {
+        "caption": "Open In Browser",
+        "id": "side-bar-open-in-browser",
+        "children":
+        [
+            { "caption": "Default", "command": "side_bar_open_in_browser", "args": { "paths": [] } },
+            { "caption": "-" },
+
+            { "caption": "Firefox", "command": "side_bar_open_in_browser",
+                "args": { "paths": [], "type": "testing", "browser": "firefox" } },
+
+            { "caption": "Firefox Developer Edition", "command": "side_bar_open_in_browser",
+                "args": { "paths": [], "type": "testing", "browser": "firefox-developer-edition" } },
+            { "caption": "-" },
+
+            { "caption": "Chromium", "command": "side_bar_open_in_browser",
+                "args": { "paths": [], "type": "testing", "browser": "chromium" } },
+
+            { "caption": "Chrome", "command": "side_bar_open_in_browser",
+                "args": { "paths": [], "type": "testing", "browser": "chrome" } },
+
+            { "caption": "Canary", "command": "side_bar_open_in_browser",
+                "args": { "paths": [], "type": "testing", "browser": "canary" } },
+            { "caption": "-" },
+
+            { "caption": "Opera", "command": "side_bar_open_in_browser",
+                "args": { "paths": [], "type": "testing", "browser": "opera" } },
+
+            { "caption": "Safari", "command": "side_bar_open_in_browser",
+                "args": { "paths": [], "type": "testing", "browser": "safari" } },
+            { "caption": "-" },
+
+            { "caption": "Internet Explorer", "command": "side_bar_open_in_browser",
+                "args": { "paths": [], "type": "testing", "browser": "ie" } },
+
+            { "caption": "Edge", "command": "side_bar_open_in_browser",
+                "args": { "paths": [], "type": "testing", "browser": "edge" } },
+
+            { "caption": "-" },
+            { "caption": "Open In All Browsers", "command": "side_bar_open_browsers" },
+        ]
+    },
+
+    {
+        "caption": "Open With",
+        "id": "side-bar-files-open-with",
+        "children":
+        [
+            { "caption": "-", "id": "side-bar-files-open-with-edit-application-separator" },
+            { "caption": "Edit Applications…",
+                "command": "side_bar_files_open_with_edit_applications", "args": { "paths": [] } },
+            { "caption": "-", "id": "side-bar-files-open-with-edit-applications-separator" },
+        ]
+    },
+
+    {
         "caption": "Enhancements",
         "id": "side-bar-enhancements",
         "children":
@@ -188,105 +280,16 @@
             { "caption": "Empty",
                 "command": "side_bar_empty", "args": { "paths": [] } },
 
-            {
-                "caption": "Find",
-                "id": "side-bar-find-advanced",
-                "children":
-                [
-                    { "caption": "Find & Replace…",
-                        "command": "side_bar_find_in_selected", "args": { "paths": [] } },
-
-                    { "caption": "Find Files Named…",
-                        "command": "side_bar_find_files_path_containing", "args": { "paths": [] } },
-
-                    { "caption": "In Parent Folder…",
-                        "command": "side_bar_find_in_parent", "args": { "paths": [] } },
-                    { "caption": "-", "id": "side-bar-find-parent-separator" },
-
-                    { "caption": "In Project…",
-                        "command": "side_bar_find_in_project", "args": { "paths": [] } },
-
-                    { "caption": "In Project Folder…",
-                        "command": "side_bar_find_in_project_folder", "args": { "paths": [] }
-                    },
-                    { "caption": "In Project Folders…",
-                        "command": "side_bar_find_in_project_folders" },
-                    { "caption": "-", "id": "side-bar-find-project-separator" },
-
-                    { "id": "side-bar-find-in-files-with-extension",
-                        "command": "side_bar_find_in_files_with_extension", "args": { "paths": [] } },
-
-                    { "caption": "In Paths Containing…",
-                        "command": "side_bar_find_files_path_containing", "args": { "paths": [] } },
-                    { "caption": "-", "id": "side-bar-mass-rename-separator" },
-
-                    { "caption": "Mass Rename Selection…",
-                        "command": "side_bar_mass_rename", "args": { "paths": [] } }
-                ]
-            },
             { "caption": "-", "id": "side-bar-find-separator" },
             { "caption": "-", "id": "side-bar-open-run-separator" },
 
             { "caption": "Open / Run", "command": "side_bar_open", "args": { "paths": [] } },
 
-            {
-                "caption": "Open In Browser",
-                "id": "side-bar-open-in-browser",
-                "children":
-                [
-                    { "caption": "Default", "command": "side_bar_open_in_browser", "args": { "paths": [] } },
-                    { "caption": "-" },
-
-                    { "caption": "Firefox", "command": "side_bar_open_in_browser",
-                        "args": { "paths": [], "type": "testing", "browser": "firefox" } },
-
-                    { "caption": "Firefox Developer Edition", "command": "side_bar_open_in_browser",
-                        "args": { "paths": [], "type": "testing", "browser": "firefox-developer-edition" } },
-                    { "caption": "-" },
-
-                    { "caption": "Chromium", "command": "side_bar_open_in_browser",
-                        "args": { "paths": [], "type": "testing", "browser": "chromium" } },
-
-                    { "caption": "Chrome", "command": "side_bar_open_in_browser",
-                        "args": { "paths": [], "type": "testing", "browser": "chrome" } },
-
-                    { "caption": "Canary", "command": "side_bar_open_in_browser",
-                        "args": { "paths": [], "type": "testing", "browser": "canary" } },
-                    { "caption": "-" },
-
-                    { "caption": "Opera", "command": "side_bar_open_in_browser",
-                        "args": { "paths": [], "type": "testing", "browser": "opera" } },
-
-                    { "caption": "Safari", "command": "side_bar_open_in_browser",
-                        "args": { "paths": [], "type": "testing", "browser": "safari" } },
-                    { "caption": "-" },
-
-                    { "caption": "Internet Explorer", "command": "side_bar_open_in_browser",
-                        "args": { "paths": [], "type": "testing", "browser": "ie" } },
-
-                    { "caption": "Edge", "command": "side_bar_open_in_browser",
-                        "args": { "paths": [], "type": "testing", "browser": "edge" } },
-
-                    { "caption": "-" },
-                    { "caption": "Open In All Browsers", "command": "side_bar_open_browsers" },
-                ]
-            },
             { "caption": "Open In New Window",
                 "command": "side_bar_open_in_new_window", "args": { "paths": [] } },
 
             { "caption": "Open With Finder",
                 "command": "side_bar_open_with_finder", "args": { "paths": [] } },
-            {
-                "caption": "Open With",
-                "id": "side-bar-files-open-with",
-                "children":
-                [
-                    { "caption": "-", "id": "side-bar-files-open-with-edit-application-separator" },
-                    { "caption": "Edit Applications…",
-                        "command": "side_bar_files_open_with_edit_applications", "args": { "paths": [] } },
-                    { "caption": "-", "id": "side-bar-files-open-with-edit-applications-separator" },
-                ]
-            },
 
             { "caption": "Give 20", "command": "side_bar_donate", "args": {"paths": []} },
             { "caption": "-", "id": "side-bar-end-separator" },
